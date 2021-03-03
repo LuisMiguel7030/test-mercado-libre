@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@mercado-libre/commons": ["./src/common"],
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
