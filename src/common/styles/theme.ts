@@ -6,6 +6,7 @@ export const theme = {
     gray3: '#666666',
     gray2: '#999999',
     gray1: '#EEEEEE',
+    white: '#FFFFFF'
   },
   fontSize: {
     xLarge: '46px',
@@ -25,5 +26,6 @@ export const theme = {
     xl: '40px',
     xxl: '48px',
     xxxl: '56px',
+    headerHeight: '56px'
   },
 };
