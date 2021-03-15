@@ -3,11 +3,13 @@ import React, { ComponentProps } from 'react';
 
 // componentes
 import ProductSearchCard from '../ProductSearchCard';
+import { Icon } from '../../../common';
 // utils
 import { mountWithContext } from '../../../common';
 import { ReactWrapper } from 'enzyme';
 
 jest.mock('../../ContainerHandler/ContainerHandler', () => ({ children }) => (<div>{children}</div>))
+jest.mock('../../../common/components/Icon/Icon', () => () => <div />);
 
 const defaultMockProps = {
    title: 'mock title',
@@ -44,7 +46,7 @@ describe('ProductSearchCard', () => {
     });
 
     it('should render icon', () => {
-      expect(wrapper.find('Icon').prop('icon')).toEqual('ic_shipping');
+      expect(wrapper.find(Icon).prop('icon')).toEqual('ic_shipping');
     });
   })
 });
