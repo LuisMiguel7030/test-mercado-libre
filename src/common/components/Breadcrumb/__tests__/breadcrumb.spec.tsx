@@ -11,8 +11,6 @@ import { ReactWrapper } from 'enzyme';
 
 jest.mock('next/link', () => () => <a />)
 
-
-
 describe('Breadcrumb', () => {
   let wrapper: ReactWrapper;
   let mockProps: ComponentProps<typeof Breadcrumb>;
