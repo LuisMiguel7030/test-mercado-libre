@@ -1,5 +1,6 @@
 // vendors
 import React, { useEffect, useContext, ReactElement } from 'react';
+import { useRouter } from 'next/router';
 // helper
 import { requestSearchData } from './helper/searchPage.helper';
 // context
@@ -44,11 +45,14 @@ const buildProductCards = (productsList: Array<ProductState>): Array<ReactElemen
 };
 
 function SearchPage(): JSX.Element {
+  const router = useRouter();
   const { state, dispatch } = useContext<{state: InitialState, dispatch: Function}>(SearchPageContext);
   const { isSearchFetching, products, isSearchError } = state;
+  const querySearch = router.query?.search as string;
+
   useEffect(() => {
-    requestSearchData('carro', dispatch);
-  }, []);
+    requestSearchData(querySearch, dispatch);
+  }, [querySearch]);
 
   if (isSearchFetching) return <span>Loading!!</span>
   if (isSearchError) return <span>Error</span>
@@ -57,7 +61,7 @@ function SearchPage(): JSX.Element {
   return (
     <PageContent breadcrumb={[
       { text: 'Pagina principal', route: HOME_ROUTE },
-      { text: 'iphone' },
+      { text: querySearch },
     ]}>
       <CardList>
         {buildProductCards(products)}
