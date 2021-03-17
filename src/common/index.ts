@@ -9,3 +9,4 @@ export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb';
 // utils
 export * from './test-utils/mountWithContext';
 export * from './utils/formatNumber/formatNumber';
+export * from './utils/exceptionsApi/exceptionsApi.util'

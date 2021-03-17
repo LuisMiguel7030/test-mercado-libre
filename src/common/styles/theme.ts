@@ -6,7 +6,8 @@ export const theme = {
     gray3: '#666666',
     gray2: '#999999',
     gray1: '#EEEEEE',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+    backgroundPage: '#EEEEEE',
   },
   fontSize: {
     xLarge: '46px',

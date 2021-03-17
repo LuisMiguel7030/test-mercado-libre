@@ -1,3 +1,3 @@
-export const HOME = '/';
-export const SEARCH_PAGE = `${HOME}items?search=`;
-export const DETAIL_PAGE = `${HOME}items/:id`;
+export const HOME_ROUTE = '/';
+export const SEARCH_ROUTE = `${HOME_ROUTE}items`;
+export const DETAIL_ROUTE = `${HOME_ROUTE}items/:id`;
