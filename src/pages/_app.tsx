@@ -2,15 +2,19 @@
 import { ReactElement } from 'react';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-// styles
-import { GlobalStyle, theme } from '@mercado-libre/commons';
+// commons
+import { GlobalStyle, theme, Header } from '@mercado-libre/commons';
+// components
+import PageLayout from '../components/PageLayout/PageLayout';
 
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
       </ThemeProvider>
     </>
   );
