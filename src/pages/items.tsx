@@ -1,1 +1,0 @@
-export { default } from '../views/SearchPage/provider/searchPage.provider';
