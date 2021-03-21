@@ -21,8 +21,11 @@ it('reducer SEARCH_DATA_REQUESTED', () => {
 });
 
 it('reducer FETCH_SEARCH_DATA_SUCCESS', () => {
-  dispath = { type: FETCH_SEARCH_DATA_SUCCESS, value: mockProductsData };
-  resutl = { ...initialState, ...{ products: mockProductsData }};
+  dispath = { type: FETCH_SEARCH_DATA_SUCCESS, value: { totalProducts: 20, products: mockProductsData} };
+  resutl = { ...initialState, ...{
+    products: mockProductsData,
+    totalProducts: 20
+  }};
   expect(reducer(initialState, dispath)).toEqual(resutl);
 });
 

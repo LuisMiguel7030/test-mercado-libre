@@ -11,7 +11,8 @@ const initialState: InitialState = {
   isSearchFetching: false,
   isSearchError: false,
   searchError: '',
-  products: []
+  products: [],
+  totalProducts: null
 }
 
 const reducer = (state: InitialState, action: any): InitialState => {
@@ -25,7 +26,8 @@ const reducer = (state: InitialState, action: any): InitialState => {
       return {
         ...state,
         isSearchFetching: false,
-        products: action.value
+        products: action.value.products,
+        totalProducts: action.value.totalProducts
       };
     case FETCH_SEARCH_DATA_ERROR:
       return {

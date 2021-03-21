@@ -9,13 +9,13 @@ import { requestSerachProduct } from '../resolver/searchPageResolver';
 // apiControl
 import { isApiControlCorrect } from './apiControl/apiControl';
 
-export const requestSearchData = (query: string, dispatch: Function): void => {
+export const requestSearchData = (query: string, offset: string, dispatch: Function): void => {
   onSearchRequested(dispatch);
-  requestSerachProduct(query)
+  requestSerachProduct(query, offset)
     .then((products) => {
       if(products.data) {
         if(isApiControlCorrect(products.data)) {
-          onSearchDataSuccess(prepareData(products.data.results), dispatch);
+          onSearchDataSuccess(prepareData(products.data), dispatch);
         } else {
           onSearchDataError(API_CONTROL_ERROR, dispatch);
         }

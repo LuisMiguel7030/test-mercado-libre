@@ -31,18 +31,18 @@ describe('Helper', () => {
     const dispatch = jest.fn();
     jest.spyOn(apiControl, 'isApiControlCorrect').mockReturnValueOnce(true);
     jest.spyOn(resolver, 'requestSerachProduct').mockImplementation(() => Promise.resolve(mockSearchDataApi));
-    await requestSearchData('carro', dispatch);
+    await requestSearchData('carro', '0',dispatch);
 
     expect(onSearchRequested).toBeCalledWith(dispatch);
     expect(onSearchDataSuccess).toHaveBeenCalled();
-    expect(prepareData).toHaveBeenCalledWith(mockSearchDataApi.data.results);
+    expect(prepareData).toHaveBeenCalledWith(mockSearchDataApi.data);
   });
 
   it('requestSearchData resolve incorrect api control', async () => {
     const dispatch = jest.fn();
     jest.spyOn(apiControl, 'isApiControlCorrect').mockReturnValueOnce(false);
     jest.spyOn(resolver, 'requestSerachProduct').mockImplementation(() => Promise.resolve(mockSearchDataApi));
-    await requestSearchData('carro', dispatch);
+    await requestSearchData('carro', '0', dispatch);
 
     expect(onSearchRequested).toBeCalledWith(dispatch);
     expect(onSearchDataError).toHaveBeenCalledWith(API_CONTROL_ERROR, dispatch);
@@ -51,7 +51,7 @@ describe('Helper', () => {
   it('requestSearchData resolve no content', async () => {
     const dispatch = jest.fn();
     jest.spyOn(resolver, 'requestSerachProduct').mockImplementation(() => Promise.resolve({ data: null }));
-    await requestSearchData('carro', dispatch);
+    await requestSearchData('carro', '0', dispatch);
 
     expect(onSearchRequested).toBeCalledWith(dispatch);
     expect(onSearchDataError).toHaveBeenCalledWith(NO_CONTENT, dispatch);
@@ -60,7 +60,7 @@ describe('Helper', () => {
   it('requestProductDetailData reject', async () => {
     const dispatch = jest.fn();
     jest.spyOn(resolver, 'requestSerachProduct').mockImplementation(() => Promise.reject(new Error()));
-    await requestSearchData('carro', dispatch);
+    await requestSearchData('carro', '0', dispatch);
 
     expect(onSearchRequested).toHaveBeenCalled();
   });

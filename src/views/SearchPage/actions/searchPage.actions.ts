@@ -1,6 +1,6 @@
 
 // interface
-import { ProductState } from '../interface/searchPage.interface';
+import { SearchDataSuccessValueAction } from '../interface/searchPage.interface';
 import { Dispatch } from '../../../shared/interface/common.interface';
 // constants
 import { SEARCH_DATA_REQUESTED, FETCH_SEARCH_DATA_SUCCESS, FETCH_SEARCH_DATA_ERROR } from '../constants/searchPage.constants';
@@ -12,10 +12,10 @@ export const onSearchRequested = (dispatch: Function): void => {
   dispatch(content);
 };
 
-export const onSearchDataSuccess = (product: Array<ProductState>, dispatch: Function): void => {
+export const onSearchDataSuccess = (value: SearchDataSuccessValueAction, dispatch: Function): void => {
   const content: Dispatch = {
     type: FETCH_SEARCH_DATA_SUCCESS,
-    value: product
+    value
   };
   dispatch(content);
 };

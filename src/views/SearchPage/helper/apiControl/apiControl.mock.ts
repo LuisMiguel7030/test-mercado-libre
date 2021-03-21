@@ -8,6 +8,20 @@ export const valuesShippingExpected = [
 ];
 
 export const valuesExpected = [
+  { key: 'site_id', type: 'string' },
+  { key: 'query', type: 'string' },
+  { key: 'paging', type: 'object' },
+  { key: 'results', type: 'array' },
+];
+
+export const valuesPaginExpected = [
+  { key: 'total', type: 'number' },
+  { key: 'primary_results', type: 'number' },
+  { key: 'offset', type: 'number' },
+  { key: 'limit', type: 'number' },
+];
+
+export const valuesResultsExpected = [
   { key: 'id', type: 'string' },
   { key: 'title', type: 'string' },
   { key: 'price', type: 'number' },

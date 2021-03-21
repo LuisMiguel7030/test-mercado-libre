@@ -17,10 +17,12 @@ type Props = {
   //** render item */
   itemLink: (index: number) => ReactNode,
   //** current page */
-  page: number
+  page: number,
+  //** restyle container */
+  className?: string
 }
 
-const Pagination = ({ count, boundaryCount, nextLink, prevLink, itemLink, page }: Props) => {
+const Pagination = ({ count, boundaryCount, nextLink, prevLink, itemLink, page, className }: Props) => {
   const countValue = count - 1;
   const itemsLegnth = (countValue < boundaryCount) ? countValue : boundaryCount;
   const middlePage = Number((boundaryCount / 2).toFixed());
@@ -29,7 +31,7 @@ const Pagination = ({ count, boundaryCount, nextLink, prevLink, itemLink, page }
   const hideNextLink = (page >= countValue);
 
   return (
-    <Container>
+    <Container className={className} >
       <List>
         {!hidePrevLink && <NavigationItem>{prevLink(page - 1)}</NavigationItem>}
         <Repeat numTimes={itemsLegnth}>

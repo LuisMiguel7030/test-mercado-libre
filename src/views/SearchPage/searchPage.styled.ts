@@ -7,7 +7,9 @@ export const CardList = styled.div`
 `;
 CardList.displayName = 'CardList';
 
-export const CardItem = styled.div`
-  margin-bottom: ${({ theme }) => theme.spaces.s};
+export const PaginationContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
-CardItem.displayName = 'CardItem';
+PaginationContainer.displayName = 'PaginationContainer';

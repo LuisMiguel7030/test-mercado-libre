@@ -1,15 +1,22 @@
-import { mustBeExitsKeys, mustBeObject, mustBeArray } from '../../../../common';
-import { Product } from '../../../../shared/interface/product';
-import { valuesExpected, valuesAddressExpected, valuesShippingExpected } from './apiControl.mock';
+import { mustBeExitsKeys } from '../../../../common';
+import { ItemsApi } from '../../interface/searchPage.interface';
+import {
+  valuesExpected,
+  valuesResultsExpected,
+  valuesAddressExpected,
+  valuesShippingExpected,
+  valuesPaginExpected
+} from './apiControl.mock';
 
-export const isApiControlCorrect = (input: any): boolean => {
+export const isApiControlCorrect = (input: ItemsApi): boolean => {
   try {
-    mustBeObject(input);
-    const productList: Array<Product> = input.results;
-    mustBeArray(productList);
+    mustBeExitsKeys(input, valuesExpected);
+    const productList = input.results;
+    const paging = input.paging;
 
+    mustBeExitsKeys(paging, valuesPaginExpected);
     productList.forEach((product) => {
-      mustBeExitsKeys(product, valuesExpected);
+      mustBeExitsKeys(product, valuesResultsExpected);
       mustBeExitsKeys(product.address, valuesAddressExpected);
       mustBeExitsKeys(product.shipping, valuesShippingExpected);
     });
