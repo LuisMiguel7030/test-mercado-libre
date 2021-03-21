@@ -3,7 +3,7 @@ import { onSearchDataError, onSearchDataSuccess, onSearchRequested } from '../ac
 // constants
 import { NO_CONTENT, API_CONTROL_ERROR } from '../constants/searchPage.constants';
 // model
-import { prepareData } from './model/homePage.model';
+import { prepareData } from './model/searchPage.model';
 // resolver
 import { requestSerachProduct } from '../resolver/searchPageResolver';
 // apiControl

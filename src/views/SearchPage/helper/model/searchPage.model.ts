@@ -1,4 +1,4 @@
-import { Product } from 'src/shared/interface/product';
+import { Product } from '../../../../shared/interface/product';
 import { ProductState } from '../../interface/searchPage.interface';
 
 export const prepareData = (input: Array<Product>): Array<ProductState> => {

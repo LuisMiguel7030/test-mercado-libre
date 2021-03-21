@@ -6,7 +6,7 @@ export interface Product {
     city_id?: string
     city_name?: string
   }
-  attributes?: Array<Object>
+  attributes?: Array<any>
   available_quantity?: number
   buying_mode?: string
   catalog_listing?: boolean
@@ -16,17 +16,17 @@ export interface Product {
   currency_id?: string
   domain_id?: string
   id?: string
-  installments?: Object
+  installments?: any
   listing_type_id?: string
   official_store_id?: null
   order_backend?: number
   original_price?: null
   permalink?: string
   price?: number
-  prices?: Object
+  prices?: any
   sale_price?: null
-  seller?: Object
-  seller_address?: Object
+  seller?: any
+  seller_address?: any
   shipping?: {
     free_shipping?: boolean
     logistic_type?: string
@@ -60,8 +60,8 @@ export interface Product {
   descriptions?: Array<any>
   non_mercado_pago_payment_methods?: Array<any>
   international_delivery_mode?: string
-  seller_contact?: string
-  location?: Object
+  seller_contact?: any
+  location?: any
   coverage_areas?: Array<any>
   warnings?: Array<any>
   listing_source?: string
@@ -70,7 +70,7 @@ export interface Product {
   sub_status?: Array<any>
   warranty?: string
   parent_item_id?: string
-  differential_pricing?: string
+  differential_pricing?: any
   deal_ids?: Array<any>
   automatic_relist?: boolean
   date_created?: string

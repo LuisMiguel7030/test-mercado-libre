@@ -12,8 +12,8 @@ export const Content = styled.div`
   align-items: center;
   width: 100%;
 
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
     margin: 0 auto;
   }
 `;
