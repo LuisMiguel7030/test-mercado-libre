@@ -7,7 +7,8 @@ export { default as Icon } from './components/Icon/Icon';
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb';
 export { default as SearchInput } from './components/SearchInput/SearchInput';
 export { default as Pagination } from './components/Pagination/Pagination';
-export { default as Repeat } from './components/Repeat/Repeat'
+export { default as Repeat } from './components/Repeat/Repeat';
+export { default as Loading } from './components/Loading/Loading'
 
 // utils
 export * from './test-utils/mountWithContext';
