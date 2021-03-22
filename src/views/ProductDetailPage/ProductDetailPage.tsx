@@ -34,9 +34,11 @@ const ProductDetailPage = () => {
   const { isProductDetailError, isProductDetailFetching, productDetail, productDescription } = state;
   const productId = router.query?.id as string;
   useEffect(() => {
-    requestProductDetailData(productId, dispatch);
-    requestProductDescriptionData(productId, dispatch)
-  }, []);
+    if(productId) {
+      requestProductDetailData(productId, dispatch);
+      requestProductDescriptionData(productId, dispatch)
+    }
+  }, [productId]);
 
   if(isProductDetailFetching) return <Loading />;
   if(isProductDetailError) return <span>Error</span>;
@@ -50,7 +52,7 @@ const ProductDetailPage = () => {
       <Head>
         <title>Mercado Libre - {productDetail.title}</title>
         <meta property="og:title" content={'Mercado Libre - ' + productDetail.title} key="title" />
-        <meta name="description" content={productDescription.substring(0, 100)} key="description"/>
+        {productDescription && <meta name="description" content={productDescription.substring(0, 100)} key="description"/>}
       </Head>
       <Content>
         <InformationContainer>
