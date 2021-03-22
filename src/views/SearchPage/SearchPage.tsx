@@ -2,6 +2,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head'
 // helper
 import { requestSearchData } from './helper/searchPage.helper';
 // context
@@ -38,6 +39,10 @@ function SearchPage(): JSX.Element {
       { text: 'Pagina principal', route: HOME_ROUTE },
       { text: searchParam },
     ]}>
+      <Head>
+        <title>Mercado Libre - Busca tu producto</title>
+        <meta property="og:title" content="Mercado Libre - Busca tu producto " key="title" />
+      </Head>
       <CardList>
         {products.map((item) => <BuildProductCard product={item} key={item.id}/>)}
       </CardList>

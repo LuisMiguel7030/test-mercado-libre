@@ -2,6 +2,7 @@
 // vendors
 import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head'
 // components
 import PageContent from '../../components/PageContent/PageContent';
 import { formatNumber, Button, Loading } from '../../common';
@@ -46,6 +47,11 @@ const ProductDetailPage = () => {
       { text: 'Pagina principal', route: HOME_ROUTE },
       { text: productDetail.title },
     ]}>
+      <Head>
+        <title>Mercado Libre - {productDetail.title}</title>
+        <meta property="og:title" content={'Mercado Libre - ' + productDetail.title} key="title" />
+        <meta name="description" content={productDescription.substring(0, 100)} key="description"/>
+      </Head>
       <Content>
         <InformationContainer>
           <ImageContainer>
