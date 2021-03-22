@@ -109,16 +109,4 @@ describe('InvestmentSimulator', () => {
       });
     });
   });
-
-  // describe('', () => {
-  //   beforeEach(() => {
-  //     jest.resetAllMocks();
-  //     mockState = { }
-  //     wrapper = render()
-  //   });
-
-  //   it('', () => {
-
-  //   });
-  // });
 });

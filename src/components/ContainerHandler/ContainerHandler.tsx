@@ -8,7 +8,7 @@ type Props = {
   //** React node */
   children: ReactNode,
   //** url link */
-  href: string,
+  href?: string,
   //** onClick action */
   onClick: () => void,
 };

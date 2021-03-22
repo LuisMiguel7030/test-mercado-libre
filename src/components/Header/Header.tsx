@@ -38,6 +38,7 @@ const Header = (): JSX.Element => {
 
         <FormContainer onSubmit={handleSubmit}>
           <SearchInput
+            name="search"
             placeholder="Nunca dejes de buscar"
             ariaLabel="Ingresa tu producto"
             handleChange={(event) => setQuery(event.target.value)}
