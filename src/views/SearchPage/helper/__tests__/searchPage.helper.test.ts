@@ -29,12 +29,13 @@ describe('Helper', () => {
 
   it('requestSearchData resolve', async () => {
     const dispatch = jest.fn();
+    const requestSerachProductSpy = jest.spyOn(resolver, 'requestSerachProduct').mockImplementation(() => Promise.resolve(mockSearchDataApi));
     jest.spyOn(apiControl, 'isApiControlCorrect').mockReturnValueOnce(true);
-    jest.spyOn(resolver, 'requestSerachProduct').mockImplementation(() => Promise.resolve(mockSearchDataApi));
-    await requestSearchData('carro', '0',dispatch);
+    await requestSearchData('carro', '1',dispatch);
 
     expect(onSearchRequested).toBeCalledWith(dispatch);
     expect(onSearchDataSuccess).toHaveBeenCalled();
+    expect(requestSerachProductSpy).toHaveBeenCalledWith('carro', 4);
     expect(prepareData).toHaveBeenCalledWith(mockSearchDataApi.data);
   });
 

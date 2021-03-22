@@ -2,10 +2,9 @@
 import axios from 'axios';
 // constants
 import { SEARCH_ENDPOINT } from '../../../constants/endpoints';
+import { PRODUCTS_LIMIT } from '../constants/searchPage.constants';
 
-const PRODUCTS_LIMIT = 4;
-
-export const requestSerachProduct = (query: string, offset: string): Promise<any> => {
+export const requestSerachProduct = (query: string, offset: number): Promise<any> => {
   return axios.get(SEARCH_ENDPOINT, {
     params: {
       q: query,

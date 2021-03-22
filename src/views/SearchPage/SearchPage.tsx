@@ -13,6 +13,7 @@ import BuildProductCard from './components/BuildProductCard/BuildProductCard';
 import { Pagination, Loading } from '../../common';
 // constants
 import { HOME_ROUTE, SEARCH_ROUTE } from '../../constants/routes';
+import { PRODUCTS_LIMIT } from './constants/searchPage.constants';
 // styles
 import { CardList, PaginationContainer } from './searchPage.styled';
 // interface
@@ -23,8 +24,9 @@ function SearchPage(): JSX.Element {
   const { state, dispatch } = useContext<{state: InitialState, dispatch: Function}>(SearchPageContext);
   const { isSearchFetching, products, isSearchError, totalProducts } = state;
   const searchParam = router.query?.search as string;
-  const pageParam = (router.query?.page || 0) as string;
+  const pageParam = (router.query?.page || '0') as string;
   const buildPaginationUrl = (page: number): string => `${SEARCH_ROUTE}?search=${searchParam}&page=${page}`;
+  const totalPages = Math.abs(totalProducts / PRODUCTS_LIMIT) + 1;
 
   useEffect(() => {
     if(searchParam) requestSearchData(searchParam, pageParam, dispatch);
@@ -48,7 +50,7 @@ function SearchPage(): JSX.Element {
       </CardList>
       <PaginationContainer>
         <Pagination
-          count={totalProducts}
+          count={totalPages}
           prevLink={(prevIndex) => <Link href={buildPaginationUrl(prevIndex)} passHref><a>Anterior</a></Link>}
           nextLink={(nextIndex) => <Link href={buildPaginationUrl(nextIndex)} passHref><a>Siguiente</a></Link>}
           itemLink={(index) => <Link href={buildPaginationUrl(index)} passHref><a>{index + 1}</a></Link>}

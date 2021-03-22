@@ -109,7 +109,7 @@ describe('SearchPageContext', () => {
     beforeEach(() => {
       jest.resetAllMocks();
       mockState = { ...defaultState, ...{
-        totalProducts: 10,
+        totalProducts: 20,
         products: mockProductsData,
       }}
       wrapper = render(mockState);
@@ -124,7 +124,7 @@ describe('SearchPageContext', () => {
     it('should build correct first page link url', () => {
       expect(wrapper.find('PaginationContainer a').at(1).prop('href')).toEqual(`${SEARCH_ROUTE}?search=bmw&page=0`);
     });
-    it('should build correct netx link url', () => {
+    it('should build correct next link url', () => {
       expect(wrapper.find('PaginationContainer a').last().prop('href')).toEqual(`${SEARCH_ROUTE}?search=bmw&page=4`);
     });
   });

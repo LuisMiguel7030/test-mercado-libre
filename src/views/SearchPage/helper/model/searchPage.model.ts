@@ -3,7 +3,7 @@ import { ProductState } from '../../interface/searchPage.interface';
 
 export const prepareData = (input: ItemsApi): { totalProducts: number, products: Array<ProductState>} => {
   return {
-    totalProducts: input.paging.total,
+    totalProducts: input.paging.primary_results,
     products: input.results.map((product) => ({
       id: product.id,
       title: product.title,

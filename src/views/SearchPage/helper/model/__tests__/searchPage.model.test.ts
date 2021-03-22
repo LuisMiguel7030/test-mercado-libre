@@ -5,7 +5,7 @@ import { mockSearchDataApi } from '../../../mock/searchPage.mock';
 
 it('Should map correct data', () => {
   expect(prepareData(mockSearchDataApi.data)).toEqual({
-    totalProducts: 697899,
+    totalProducts: 1000,
     products: [
       {
         id: 'MLA912601780',

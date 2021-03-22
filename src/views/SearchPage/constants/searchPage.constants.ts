@@ -4,3 +4,5 @@ export const FETCH_SEARCH_DATA_ERROR = 'FETCH_SEARCH_DATA_ERROR';
 
 export const API_CONTROL_ERROR = 'API_CONTROL_ERROR';
 export const NO_CONTENT = 'NO_CONTENT';
+
+export const PRODUCTS_LIMIT = 4;

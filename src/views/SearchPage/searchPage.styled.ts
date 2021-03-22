@@ -11,5 +11,6 @@ export const PaginationContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: ${({ theme }) => theme.spaces.s};
 `;
 PaginationContainer.displayName = 'PaginationContainer';
