@@ -69,7 +69,7 @@ describe('InvestmentSimulator', () => {
     });
 
     it('should render loading component', () => {
-      expect(wrapper.find('span')).toHaveLength(1);
+      expect(wrapper.find('Loading')).toHaveLength(1);
     });
   });
 

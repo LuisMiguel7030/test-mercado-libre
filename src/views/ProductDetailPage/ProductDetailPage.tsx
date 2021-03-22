@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 // components
 import PageContent from '../../components/PageContent/PageContent';
-import { formatNumber } from '../../common';
+import { formatNumber, Button, Loading } from '../../common';
 // context
 import { ProductDetailPageContext } from './context/productDetailPage.context';
 // constants
@@ -37,7 +37,7 @@ const ProductDetailPage = () => {
     requestProductDescriptionData(productId, dispatch)
   }, []);
 
-  if(isProductDetailFetching) return <span>Loading !!</span>;
+  if(isProductDetailFetching) return <Loading />;
   if(isProductDetailError) return <span>Error</span>;
   if(!productDetail) return null;
 
@@ -68,6 +68,9 @@ const ProductDetailPage = () => {
                 minimumFractionDigits: productDetail.price.decimals
               })}
             </PriceLabel>
+            <Button color="secondary" size="big" fullWidth onClick={() => {}} >
+              Comprar
+            </Button>
           </MainInformation>
         </InformationContainer>
       </Content>
